@@ -6,7 +6,7 @@ let location = 'RSA';
 let currency = 'R';
 let customers = 1;
 
-let shipping;
+let shipping = undefined;
 
 const shoes = 300 * 1;
 const toys = 100 * 5;
@@ -14,7 +14,7 @@ const shirts = 150 * NONE_SELECTED;
 const batteries = 35 * 2;
 const pens = 5 * NONE_SELECTED;
 
-if (location === 'RSA') {
+/*if (location === 'RSA') {
   shipping = 400;
 } else if (location === 'NAM') {
   shipping = 600;
@@ -22,6 +22,15 @@ if (location === 'RSA') {
   console.log(BANNED_WARNING);
 } else {
   shipping = 800;
+} */
+if (location = "RSA"){
+  currency = "R";
+  shipping = 400;
+  
+} else {
+  currency = "$";
+  shipping = location === "Nam" ? 600 : 800
+
 }
 
 const subtotal = shoes + toys + shirts + batteries + pens;
