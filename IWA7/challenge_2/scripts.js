@@ -1,13 +1,17 @@
 const nickname= "Timmy";
 const firstname = "Timothy";
+const nickNameOrFirst = nickname || firstname
 
-console.log(`Good Morning, ${nickname ? nickname : firstname ? firstname :''}!'`);
+ if (nickNameOrFirst == undefined){
+    console.log('Good Morning')
+ }else{
+    console.log(`Good Morning, ${nickNameOrFirst}!`)
+ }
 
 
-/*if (nickname) {
-  console.log(`Good morning, ${nickname}!`);
-} else if (firstname) {
-  console.log(`Good morning, ${firstname}!`);
-} else {
-  console.log("Good morning!");
-} */
+/*console.log(`Good Morning, ${nickname || firstname}!`)
+
+
+
+
+
