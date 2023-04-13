@@ -1,116 +1,9 @@
-/*const currentYear = new Date().getFullYear()
-
-const holidays = {
-    0: {
-        id: 0,
-        name: 'Day of Reconciliation',
-        date: `16 December ${currentYear}`,
-    },
-    1: {
-        id: 1,
-        name: 'Workers Day',
-        date: new Date(`1 April ${currentYear}`),
-    },
-    2: {
-        id: 2,
-        name: 'Day of Goodwill',
-        date: new Date(`26 December ${currentYear}`),
-    },
-    3: {
-        id: 3,
-        name: 'New Year Day',
-        date: new Date(`1 January ${currentYear}`),
-    },
-    4: {
-        id: 4,
-        name: 'Womens Day',
-        date: new Date(`9 August ${currentYear}`),
-    },
-    5: {
-        id: 5,
-        name: 'Heritage Day',
-        date: new Date(`24 September ${currentYear}`),
-    },
-    6: {
-        id: 6,
-        name: 'X-mas',
-        date: new Date(`25 December ${currentYear} 00:00`),
-    },
-    7: {
-        id: 7,
-        name: 'Youth Day',
-        date: new Date(`16 June ${currentYear}`),
-    },
-    8: {
-        id: 8,
-        name: 'Human Rights Day',
-        date: new Date(`21 March ${currentYear}`)
-    },
-}
-
-const christmas = 6
-const futureId = 9
-
-// Do not change code above this comment
-
-console.log(holidays.futureId.name || 'ID {futureId} not created yet')
-
-copied = holidays.christmas
-copied = { name: 'X-mas Day' }
-correctDate = copied.date
-correctDate.hours = 0
-correctDate.minutes = 0
-isEarlier = copied.date < holidays[6].date
-console.log('New date is earlier:', isEarlier)
-if (isEarlier) copied.date = correctDate
-console.log('ID change:', holidays[christmas].id != copied.id || copied.id)
-console.log('Name change:', holidays[christmas].name != copied.name || copied.name)
-console.log('Date change:', holidays[christmas].date != copied.date || copied.date)
-
-const firstHolidayTimestamp = parseInt(Math.min(
-    holidays[0].date.getTime,
-    holidays[1].date.getTime,
-    holidays[2].date.getTime,
-    holidays[3].date.getTime,
-    holidays[4].date.getTime,
-    holidays[5].date.getTime,
-    holidays[6].date.getTime,
-    holidays[7].date.getTime,
-    holidays[8].date.getTime,
-)
-)
- 
-
-const lastHolidayTimestamp = Math.max(
-    holidays[0].date.getTime,
-    holidays[1].date.getTime,
-    holidays[2].date.getTime,
-    holidays[3].date.getTime,
-    holidays[4].date.getTime,
-    holidays[5].date.getTime,
-    holidays[6].date.getTime,
-    holidays[7].date.getTime,
-    holidays[8].date.getTime,
-)
-
-const firstDay = firstHolidayTimestamp.getDate
-const firstMonth = firstHolidayTimestamp.getMonth
-const lastDay = lastHolidayTimestamp.getDate
-const lastMonth = lastHolidayTimestamp.getMonth
-
-console.log('{firstDay}/{firstMonth}/{currentYear}')
-console.log('{lastDay}/{lastMonth}/{currentYear}')
-
-const randomHoliday = holidays[Math.random]
-console.log(randomHoliday.date) */
-
-
 const currentYear = new Date().getFullYear()
 const holidays = {
     0: {
         id: 0,
         name: 'Day of Reconciliation',
-        date: new Date (`16 December ${currentYear}`),
+        date:( `16 December ${currentYear}`),
     },
     1: {
         id: 1,
@@ -156,70 +49,76 @@ const holidays = {
 const christmas = 6
 const futureId = 9
 // Do not change code above this comment
-console.log(holidays.futureId || `ID ${futureId} not created yet`)
+console.log(holidays[futureId]? holidays[futureId].name :`ID ${futureId} not created yet` );
+
 const copied = {
-    id: 6,
+    id: holidays[christmas].id ,
     name: 'X-mas Day',
-    date: new Date(`25 December ${currentYear} 00:00`)  // holidays.6[date]
- }
-const correctDate = copied.date
-correctDate.hours = 0
-correctDate.minutes = 0
-const isEarlier = copied.date < holidays[6].date
-console.log('New date is earlier:', isEarlier)
-if (isEarlier) {
-    copied.date = correctDate
-    console.log('ID change:', holidays[christmas].id = copied.id || copied.date)
-    console.log('Name change:', holidays[christmas].name = copied.name || copied.name)
-    console.log('Date change:', holidays[christmas].date = copied.date || copied.date)
+    date: new Date(`25 December ${currentYear}`),
 }
-const firstHolidayTimestamp = Math.min(
-    holidays[0].date.getTime,
-    holidays[1].date.getTime,
-    holidays[2].date.getTime,
-    holidays[3].date.getTime,
-    holidays[4].date.getTime,
-    holidays[5].date.getTime,
-    holidays[6].date.getTime,
-    holidays[7].date.getTime,
-    holidays[8].date.getTime,
+const correctDate = copied.date;
+    // correctDate.setHours(0,0,0,0) ;
+    const isEarlier = correctDate < holidays[christmas].date;
+    console.log('New date is earlier',  isEarlier);
+    if(isEarlier) {
+    console.log('')
+console.log('ID change:', holidays[christmas].id != copied.id)
+console.log('')
+console.log('Name change:', copied.name)
+console.log('')
+console.log('Date change:', (copied.date).toLocaleDateString('en-GB'))
+console.log('')
+    }
+ const firstHolidayTimestamp = Math.min(
+    holidays[1].date,
+    holidays[2].date,
+    holidays[3].date,
+    holidays[4].date,
+    holidays[5].date,
+    holidays[6].date,
+    holidays[7].date,
+    holidays[8].date,
 )
+let firstDay = new Date (firstHolidayTimestamp)
+firstDay = firstDay.toLocaleDateString('en-GB')
+console.log(firstDay)
+
 const lastHolidayTimestamp = Math.max(
-    holidays[0].date.getTime,
-    holidays[1].date.getTime,
-    holidays[2].date.getTime,
-    holidays[3].date.getTime,
-    holidays[4].date.getTime,
-    holidays[5].date.getTime,
-    holidays[6].date.getTime,
-    holidays[7].date.getTime,
-    holidays[8].date.getTime,
+    parseInt(holidays[0].date),
+    holidays[1].date,
+    holidays[2].date,
+    holidays[3].date,
+    holidays[4].date,
+    holidays[5].date,
+    holidays[6].date,
+    holidays[7].date,
+    holidays[8].date,
 )
-const firstDay = firstHolidayTimestamp.getDate
-const firstMonth = firstHolidayTimestamp.getMonth
-const lastDay = lastHolidayTimestamp.getDate
-const lastMonth = lastHolidayTimestamp.getMonth
-console.log(`${firstDay}/${firstMonth}/${currentYear}`)
-console.log(`${lastDay}/${lastMonth}/${currentYear}`)
-const randomHoliday = holidays[Math.random]
-console.log(randomHoliday.date)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+let lastDay = new Date (lastHolidayTimestamp)
+lastDay = lastDay.toLocaleDateString('en-GB')
+console.log(lastDay)
+// const firstDay = firstHolidayTimestamp.getDate()
+// const firstMonth = firstHolidayTimestamp.getMonth()
+// const lastDay = lastHolidayTimestamp.getDate()
+// const lastMonth = lastHolidayTimestamp.getMonth()
+// console.log(firstDay,firstMonth,currentYear)
+// console.log(lastDay,lastMonth,currentYear)
+const randomHoliday = Math.floor(Math.random() * 8)
+console.log(holidays[randomHoliday].name)
+/* const date1 = new date("16 Deember 2023").getTime();
+const date2 = new date("1 April 2023").getTime();
+const date3 = new date("26 Deember 2023").getTime();
+const date4 = new date("1 January 2023").getTime();
+const date5 = new date("9 August 2023").getTime();
+const date6 = new date("24 September 2023").getTime();
+const date7 = new date("25 December 2023").getTime();
+const date8 = new date("16 June2023").getTime();
+const date9 = new date("21 March 2023").getTime(); */
+//-----      data   convertion   ------//
+/* let firstHolidayTimestamp = Math.min(date1,date2,date3,date4,date5,date6,date7,date8,date9);
+const dateFirst = new Date(firstHolidayTimestamp);
+console.log(dateFirst)
+const dayFirst = dateFirst.getUTCDate();
+const monthFirst = dateFirst.getUTCMonth() + 1;
+const yearFirst = dateFirst.getUTCFullYear();
+firstHolidayTimestamp = `${dayFirst}/${monthFirst}/${yearFirst}` */
